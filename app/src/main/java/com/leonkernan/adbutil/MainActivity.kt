@@ -69,7 +69,7 @@ private fun readState(resolver: ContentResolver): PropState {
     return PropState(adbEnabled, otgGadget, usbConfig, adbdRunning)
 }
 
-private fun applyAdb(resolver: ContentResolver): Result<Unit> = runCatching {
+internal fun applyAdb(resolver: ContentResolver): Result<Unit> = runCatching {
     val delay = 500L
     Settings.Global.putInt(resolver, Settings.Global.ADB_ENABLED, 1)
     Thread.sleep(delay)
